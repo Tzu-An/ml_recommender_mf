@@ -3,10 +3,14 @@ Simple implementation of matrix factorization for recommender system
 
 ## Declaration
 
-  - Since mf module is just a simple implementation, there is a lot of room for improvements before applying to larger dataset, including:
-    - Get better initial guess with SVD
-    - Applying better optimization method, like rmsprop
+  - The main goal of this repository is to demonstrate some ideas to improve matrix factorization method.
+  - Since mf module is just a simple implementation, there is a lot of room for improvements before applying to larger dataset,
+    including:
     - Implement optimization part with C to get better performance
+    - Try other methods to get better initial guess
+    - change a target function, like frobenius norm
+    - add l1, l2 regularization
+    - Better optimization methods, like rmsprop
 
 ## Models
 
@@ -15,8 +19,8 @@ Simple implementation of matrix factorization for recommender system
   - MFWithNull: With different way to deal with null data from GDMF
     - This model treats 0 as null. Better to shift the ratings before applying this model.
     - This model will ignore nulls and make prediction based on information from real rating history.
-    - Most of the results will be converge to some number between upper-bond and lower-bond, and
-      the predictions will not seem like adding a random decimal to given record.
+    - Most of the results will be converged to some number between upper-bond and lower-bond, and
+      the predictions will not seem like adding a random decimal to given records.
     - The predictions would not go too far from the recorded rating for those user with
       nearly no rating history or no preferences.
 
